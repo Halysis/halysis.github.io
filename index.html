@@ -81,8 +81,16 @@
   }
   </script>
 
+  <!-- Typefaces -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap">
+
   <style>
     :root {
+      --font-sans: "Inter", "Helvetica Neue", Arial, Helvetica, sans-serif;
+      --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
       --black: #111111;
       --gray-1: #4b4b4b;
       --gray-2: #747474;
@@ -108,10 +116,12 @@
       margin: 0;
       color: var(--black);
       background: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: var(--font-sans);
       font-size: 16px;
-      line-height: 1.65;
+      line-height: 1.6;
+      font-optical-sizing: auto;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     a {
@@ -717,8 +727,9 @@
           <article class="publication">
             <div class="date">2026</div>
             <div>
-              <div class="publication-title">Experimental Investigation of a Fully-Passive Bidirectional Hydrokinetic Turbine with Elliptical Foils in Tandem for Tidal Stream Power Generation</div>
-              <div class="publication-meta">International Journal of Energy Research</div>
+              <div class="publication-title">Experimental Investigation of a Fully-Passive Bidirectional Hydrokinetic Turbine With Elliptical Foils in Tandem for Tidal Stream Power Generation</div>
+              <div class="publication-meta">International Journal of Energy Research, 2026(1), 5594961</div>
+              <div class="links"><a href="https://doi.org/10.1155/er/5594961" target="_blank" rel="noopener noreferrer">DOI</a></div>
             </div>
           </article>
 
