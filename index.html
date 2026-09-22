@@ -13,11 +13,73 @@
     gtag('config', 'G-KMGZHYY9DK');
   </script>
 
-  <!-- Remove this line later if you want Google to index the site. -->
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="description" content="Dong-Geon Kim, Ph.D. — experimental researcher in biomimetic marine propulsion, marine robotics, hydrokinetic turbines, and test and evaluation engineering.">
+  <!-- SEO / indexing -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://halysis.github.io/">
+
+  <title>Dong-Geon Kim, Ph.D. — Biomimetic Marine Propulsion &amp; Experimental Hydrodynamics</title>
+  <meta name="description" content="Dong-Geon Kim (김동건), Ph.D. — postdoctoral researcher at KIOST working on biomimetic marine propulsion, flapping-foil hydrokinetic turbines, experimental hydrodynamics, and test and evaluation of marine unmanned systems.">
   <meta name="author" content="Dong-Geon Kim">
-  <title>Dong-Geon Kim, Ph.D.</title>
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Dong-Geon Kim, Ph.D.">
+  <meta property="og:title" content="Dong-Geon Kim, Ph.D. — Biomimetic Marine Propulsion &amp; Experimental Hydrodynamics">
+  <meta property="og:description" content="Postdoctoral researcher at KIOST. Biomimetic marine propulsion, flapping-foil hydrokinetic turbines, experimental hydrodynamics, and test and evaluation of marine unmanned systems.">
+  <meta property="og:url" content="https://halysis.github.io/">
+  <meta property="og:locale" content="en_US">
+  <!-- Add a 1200x630 image (e.g. profile.jpg) and uncomment:
+  <meta property="og:image" content="https://halysis.github.io/og-image.jpg"> -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dong-Geon Kim, Ph.D.">
+  <meta name="twitter:description" content="Biomimetic marine propulsion, hydrokinetic turbines, and experimental hydrodynamics.">
+
+  <!-- Inline monogram favicon (avoids the /favicon.ico 404) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111'/%3E%3Ctext x='32' y='44' font-family='Arial,Helvetica,sans-serif' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle'%3EDK%3C/text%3E%3C/svg%3E">
+
+  <!-- Structured data: helps Google connect the page to the person and to the papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dong-Geon Kim",
+    "alternateName": ["Donggeon Kim", "Dong Geon Kim", "Kim Dong-Geon", "김동건"],
+    "honorificSuffix": "Ph.D.",
+    "jobTitle": "Postdoctoral Research Fellow",
+    "email": "mailto:dgk@kiost.ac.kr",
+    "url": "https://halysis.github.io/",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Korea Institute of Ocean Science and Technology",
+      "alternateName": "KIOST",
+      "url": "https://www.kiost.ac.kr/"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Jeju National University"
+    },
+    "knowsAbout": [
+      "Biomimetic marine propulsion",
+      "Flapping-foil hydrokinetic turbines",
+      "Experimental hydrodynamics",
+      "Fluid-structure interaction",
+      "Marine robotics",
+      "Test and evaluation engineering",
+      "Particle image velocimetry"
+    ],
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "ORCID",
+      "value": "https://orcid.org/0009-0009-4880-030X"
+    },
+    "sameAs": [
+      "https://scholar.google.com/citations?user=1XFiB48AAAAJ",
+      "https://orcid.org/0009-0009-4880-030X",
+      "https://www.researchgate.net/profile/Dong-Geon-Kim-4"
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -36,6 +98,10 @@
 
     html {
       scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
     }
 
     body {
@@ -79,8 +145,12 @@
     }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
       border-bottom: 1px solid var(--gray-3);
       background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: saturate(180%) blur(8px);
     }
 
     .nav {
@@ -214,7 +284,7 @@
 
     .section-label {
       position: sticky;
-      top: 24px;
+      top: 90px;
       align-self: start;
     }
 
@@ -422,6 +492,10 @@
         width: min(calc(100% - 30px), var(--page-width));
       }
 
+      header {
+        position: static;
+      }
+
       .nav {
         align-items: flex-start;
         flex-direction: column;
@@ -496,6 +570,7 @@
         <a href="#publications">Publications</a>
         <a href="#presentations">Presentations</a>
         <a href="#background">Background</a>
+        <a href="#skills">Methods</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -530,7 +605,9 @@
           <p><strong>Position</strong>Postdoctoral Research Fellow</p>
           <p><strong>Affiliation</strong>Korea Institute of Ocean Science and Technology</p>
           <p><strong>Research</strong>Biomimetic propulsion and experimental hydrodynamics</p>
+          <p><strong>Name</strong>김동건 (Kim, Dong-Geon)</p>
           <p><strong>Email</strong><a href="mailto:dgk@kiost.ac.kr">dgk@kiost.ac.kr</a></p>
+          <p><strong>ORCID</strong><a href="https://orcid.org/0009-0009-4880-030X" rel="me noopener noreferrer" target="_blank">0009-0009-4880-030X</a></p>
         </aside>
       </div>
     </div>
@@ -828,17 +905,16 @@
         </div>
         <div class="contact-links">
           <a href="mailto:dgk@kiost.ac.kr">dgk@kiost.ac.kr</a>
-          <!-- Replace # with the actual profile URLs. -->
-          <a href="#" aria-label="Google Scholar profile">Google Scholar</a>
-          <a href="#" aria-label="ORCID profile">ORCID</a>
-          <a href="#" aria-label="ResearchGate profile">ResearchGate</a>
+          <a href="https://scholar.google.com/citations?user=1XFiB48AAAAJ" aria-label="Google Scholar profile" rel="me noopener noreferrer" target="_blank">Google Scholar</a>
+          <a href="https://orcid.org/0009-0009-4880-030X" aria-label="ORCID profile" rel="me noopener noreferrer" target="_blank">ORCID</a>
+          <a href="https://www.researchgate.net/profile/Dong-Geon-Kim-4" aria-label="ResearchGate profile" rel="me noopener noreferrer" target="_blank">ResearchGate</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">© <span id="year"></span> Dong-Geon Kim. Hosted on GitHub Pages.</div>
+    <div class="wrap">© <span id="year"></span> Dong-Geon Kim</div>
   </footer>
 
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
