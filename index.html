@@ -13,6 +13,16 @@
     gtag('config', 'G-KMGZHYY9DK');
   </script>
 
+  <script>
+    /* Applies the saved theme before first paint. */
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- SEO / indexing -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
@@ -104,8 +114,9 @@
       color-scheme: light dark;
     }
 
+    /* Follows the OS setting until the visitor picks a theme explicitly. */
     @media (prefers-color-scheme: dark) {
-      :root {
+      :root:not([data-theme="light"]) {
         --black: #e9ebec;
         --gray-1: #b2b8ba;
         --gray-2: #8b9295;
@@ -117,6 +128,21 @@
         --header-bg: rgba(16, 19, 20, 0.94);
       }
     }
+
+    :root[data-theme="dark"] {
+      --black: #e9ebec;
+      --gray-1: #b2b8ba;
+      --gray-2: #8b9295;
+      --gray-3: #2b3033;
+      --gray-4: #171b1d;
+      --white: #101314;
+      --accent: #63cfdd;
+      --accent-strong: #8fe0ea;
+      --header-bg: rgba(16, 19, 20, 0.94);
+    }
+
+    :root[data-theme="light"] { color-scheme: light; }
+    :root[data-theme="dark"] { color-scheme: dark; }
 
     * {
       box-sizing: border-box;
@@ -228,6 +254,47 @@
     nav a:hover {
       color: var(--accent);
     }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--gray-1);
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+    }
+
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
     .nav-toggle {
       display: none;
@@ -675,7 +742,6 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="#top">Dong-Geon Kim</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav id="site-nav" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
@@ -686,6 +752,13 @@
         <a href="#skills">Methods</a>
         <a href="#contact">Contact</a>
       </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.6 6.6 0 0 0 10.5 10.5Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.2 12H2M22 12h-2.2M6.5 6.5 4.9 4.9M19.1 19.1l-1.6-1.6M17.5 6.5l1.6-1.6M4.9 19.1l1.6-1.6"/></svg>
+        </button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      </div>
     </div>
   </header>
 
@@ -1036,6 +1109,22 @@
       });
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") setOpen(false);
+      });
+    })();
+
+    (function () {
+      var button = document.querySelector(".theme-toggle");
+      var root = document.documentElement;
+      if (!button) return;
+      function effective() {
+        var set = root.getAttribute("data-theme");
+        if (set === "light" || set === "dark") return set;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      button.addEventListener("click", function () {
+        var next = effective() === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
       });
     })();
   </script>
