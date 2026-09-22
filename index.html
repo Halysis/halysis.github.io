@@ -97,7 +97,25 @@
       --gray-3: #d8d8d8;
       --gray-4: #f5f5f5;
       --white: #ffffff;
+      --accent: #0a5c68;
+      --accent-strong: #073f48;
+      --header-bg: rgba(255, 255, 255, 0.96);
       --page-width: 1080px;
+      color-scheme: light dark;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --black: #e9ebec;
+        --gray-1: #b2b8ba;
+        --gray-2: #8b9295;
+        --gray-3: #2b3033;
+        --gray-4: #171b1d;
+        --white: #101314;
+        --accent: #63cfdd;
+        --accent-strong: #8fe0ea;
+        --header-bg: rgba(16, 19, 20, 0.94);
+      }
     }
 
     * {
@@ -121,7 +139,6 @@
       line-height: 1.6;
       font-optical-sizing: auto;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
 
     a {
@@ -132,6 +149,24 @@
 
     a:hover {
       text-decoration-thickness: 2px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .links a,
+    .contact-links a,
+    .hero-meta a {
+      color: var(--accent);
+    }
+
+    .links a:hover,
+    .contact-links a:hover,
+    .hero-meta a:hover {
+      color: var(--accent-strong);
     }
 
     .wrap {
@@ -157,9 +192,10 @@
     header {
       position: sticky;
       top: 0;
+      isolation: isolate;
       z-index: 900;
       border-bottom: 1px solid var(--gray-3);
-      background: rgba(255, 255, 255, 0.96);
+      background: var(--header-bg);
       backdrop-filter: saturate(180%) blur(8px);
     }
 
@@ -174,7 +210,7 @@
     .brand {
       font-weight: 700;
       text-decoration: none;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.012em;
     }
 
     nav {
@@ -190,7 +226,20 @@
     }
 
     nav a:hover {
-      color: var(--black);
+      color: var(--accent);
+    }
+
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid var(--gray-3);
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-size: 0.86rem;
+      cursor: pointer;
     }
 
     .hero {
@@ -217,18 +266,19 @@
     h1 {
       margin: 0;
       font-size: clamp(3.2rem, 8vw, 6.7rem);
-      line-height: 0.94;
-      letter-spacing: -0.065em;
+      line-height: 0.92;
+      letter-spacing: -0.042em;
       font-weight: 700;
     }
 
     .hero-title {
       max-width: 760px;
       margin: 30px 0 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-      line-height: 1.45;
+      font-family: var(--font-serif);
+      font-size: clamp(1.3rem, 2.6vw, 1.82rem);
+      line-height: 1.42;
       font-weight: 400;
+      text-wrap: balance;
     }
 
     .hero-summary {
@@ -298,9 +348,20 @@
       align-self: start;
     }
 
+    .section-label .section-note {
+      margin: 12px 0 0;
+      max-width: 190px;
+      color: var(--gray-2);
+      font-size: 0.82rem;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
     .section-label p {
       margin: 0 0 8px;
-      color: var(--gray-2);
+      color: var(--accent);
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -310,21 +371,23 @@
     h2 {
       margin: 0;
       font-size: 1.55rem;
-      letter-spacing: -0.035em;
+      letter-spacing: -0.022em;
     }
 
     h3 {
       margin: 0;
       font-size: 1.02rem;
       line-height: 1.45;
+      letter-spacing: -0.008em;
+      text-wrap: balance;
     }
 
     .lead {
       margin: 0;
       max-width: 780px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.25rem;
-      line-height: 1.65;
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      line-height: 1.6;
     }
 
     .plain-list {
@@ -370,7 +433,9 @@
     .date {
       color: var(--gray-2);
       font-size: 0.84rem;
-      font-weight: 700;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.01em;
     }
 
     .entry p {
@@ -385,7 +450,9 @@
     }
 
     .publication-title {
-      font-weight: 700;
+      font-weight: 600;
+      letter-spacing: -0.008em;
+      text-wrap: pretty;
     }
 
     .publication-meta {
@@ -408,18 +475,28 @@
       font-weight: 700;
     }
 
-    .two-column {
-      columns: 2;
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: 52px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .two-column li {
-      break-inside: avoid;
-      padding: 9px 0;
+    .tool-grid li {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
       border-bottom: 1px solid var(--gray-3);
+    }
+
+    .first-author {
+      margin-left: 5px;
+      color: var(--gray-2);
+      font-size: 0.82em;
+      vertical-align: super;
+      line-height: 0;
     }
 
     .contact {
@@ -438,10 +515,12 @@
 
     .contact h2 {
       max-width: 720px;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: var(--font-serif);
       font-size: clamp(2rem, 5vw, 4rem);
       font-weight: 400;
-      line-height: 1.15;
+      line-height: 1.12;
+      letter-spacing: -0.012em;
+      text-wrap: balance;
     }
 
     .contact p {
@@ -502,18 +581,41 @@
         width: min(calc(100% - 30px), var(--page-width));
       }
 
-      header {
-        position: static;
+      .nav {
+        min-height: 58px;
+        align-items: center;
+        flex-direction: row;
+        gap: 16px;
       }
 
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 16px 0;
+      .nav-toggle {
+        display: inline-flex;
       }
 
       nav {
-        gap: 12px 16px;
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding: 6px 0 14px;
+        border-bottom: 1px solid var(--gray-3);
+        background: var(--white);
+        box-shadow: 0 18px 24px -18px rgba(0, 0, 0, 0.35);
+      }
+
+      nav.is-open {
+        display: flex;
+      }
+
+      nav a {
+        width: min(calc(100% - 30px), var(--page-width));
+        margin: 0 auto;
+        padding: 11px 0;
+        border-top: 1px solid var(--gray-3);
+        font-size: 0.95rem;
       }
 
       .hero {
@@ -536,8 +638,8 @@
         gap: 6px;
       }
 
-      .two-column {
-        columns: 1;
+      .tool-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -573,7 +675,8 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="#top">Dong-Geon Kim</a>
-      <nav aria-label="Primary navigation">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
@@ -612,9 +715,7 @@
         </div>
 
         <aside class="hero-meta" aria-label="Profile information">
-          <p><strong>Position</strong>Postdoctoral Research Fellow</p>
-          <p><strong>Affiliation</strong>Korea Institute of Ocean Science and Technology</p>
-          <p><strong>Research</strong>Biomimetic propulsion and experimental hydrodynamics</p>
+          <p><strong>Position</strong>Postdoctoral Research Fellow<br>Korea Institute of Ocean Science and Technology</p>
           <p><strong>Name</strong>김동건 (Kim, Dong-Geon)</p>
           <p><strong>Email</strong><a href="mailto:dgk@kiost.ac.kr">dgk@kiost.ac.kr</a></p>
           <p><strong>ORCID</strong><a href="https://orcid.org/0009-0009-4880-030X" rel="me noopener noreferrer" target="_blank">0009-0009-4880-030X</a></p>
@@ -624,7 +725,7 @@
 
     <section id="about">
       <div class="wrap section-grid">
-        <div class="section-label"><p>01</p><h2>About</h2></div>
+        <div class="section-label"><p>01</p><h2>About</h2><p class="section-note">Research scope and the experimental methods behind it.</p></div>
         <div>
           <p class="lead">
             My work connects mechanical design, experimental validation,
@@ -644,7 +745,7 @@
             </li>
             <li>
               <h3>Experimental hydrodynamics</h3>
-              <p>Water tunnels, recirculating channels, force and torque measurement, PIV, LDV, ADV, signal processing, and uncertainty assessment.</p>
+              <p>Water tunnels, recirculating channels, force and torque measurement, PIV, ADV, signal processing, and uncertainty assessment.</p>
             </li>
             <li>
               <h3>Test and evaluation engineering</h3>
@@ -657,7 +758,7 @@
 
     <section id="experience">
       <div class="wrap section-grid">
-        <div class="section-label"><p>02</p><h2>Experience</h2></div>
+        <div class="section-label"><p>02</p><h2>Experience</h2><p class="section-note">Current position and day-to-day responsibilities.</p></div>
         <div>
           <article class="timeline-item">
             <div class="date">Mar 2025–Present</div>
@@ -679,7 +780,7 @@
 
     <section id="projects">
       <div class="wrap section-grid">
-        <div class="section-label"><p>03</p><h2>Selected Projects</h2></div>
+        <div class="section-label"><p>03</p><h2>Selected Projects</h2><p class="section-note">Funded research projects, 2022–2026.</p></div>
         <div>
           <article class="presentation">
             <div class="date">2025–2026</div>
@@ -708,26 +809,18 @@
               <p>Supported flume testing and verification of the experimental environment.</p>
             </div>
           </article>
-
-          <article class="presentation">
-            <div class="date">2021</div>
-            <div class="entry">
-              <h3>Advanced O&amp;M Technology for Offshore Wind Turbines</h3>
-              <p>Participated as a graduate research assistant.</p>
-            </div>
-          </article>
         </div>
       </div>
     </section>
 
     <section id="publications">
       <div class="wrap section-grid">
-        <div class="section-label"><p>04</p><h2>Journal Articles</h2></div>
+        <div class="section-label"><p>04</p><h2>Journal Articles</h2><p class="section-note">Five peer-reviewed papers, four as first or co-first author.</p></div>
         <div>
           <article class="publication">
             <div class="date">2026</div>
             <div>
-              <div class="publication-title">Experimental Investigation of a Fully-Passive Bidirectional Hydrokinetic Turbine With Elliptical Foils in Tandem for Tidal Stream Power Generation</div>
+              <div class="publication-title">Experimental Investigation of a Fully-Passive Bidirectional Hydrokinetic Turbine With Elliptical Foils in Tandem for Tidal Stream Power Generation<sup class="first-author">‡</sup></div>
               <div class="publication-meta">International Journal of Energy Research, 2026(1), 5594961</div>
               <div class="links"><a href="https://doi.org/10.1155/er/5594961" target="_blank" rel="noopener noreferrer">DOI</a></div>
             </div>
@@ -736,7 +829,7 @@
           <article class="publication">
             <div class="date">2024</div>
             <div>
-              <div class="publication-title">Experimental Investigation of the Yaw Misalignment Effect on the Power Performance and System Loading of a Flapping-Foil Hydrokinetic Turbine</div>
+              <div class="publication-title">Experimental Investigation of the Yaw Misalignment Effect on the Power Performance and System Loading of a Flapping-Foil Hydrokinetic Turbine<sup class="first-author">‡</sup></div>
               <div class="publication-meta">Energy Science &amp; Engineering, 12(12), 5555–5565</div>
               <div class="links"><a href="https://doi.org/10.1002/ese3.1969" target="_blank" rel="noopener noreferrer">DOI</a></div>
             </div>
@@ -745,7 +838,7 @@
           <article class="publication">
             <div class="date">2024</div>
             <div>
-              <div class="publication-title">An Experimental Investigation of the Performance of a Power Transmission Mechanism for a Flapping-Foil Hydrokinetic Turbine</div>
+              <div class="publication-title">An Experimental Investigation of the Performance of a Power Transmission Mechanism for a Flapping-Foil Hydrokinetic Turbine<sup class="first-author">‡</sup></div>
               <div class="publication-meta">Renewable Energy, 237, 121636</div>
               <div class="links"><a href="https://doi.org/10.1016/j.renene.2024.121636" target="_blank" rel="noopener noreferrer">DOI</a></div>
             </div>
@@ -754,7 +847,7 @@
           <article class="publication">
             <div class="date">2023</div>
             <div>
-              <div class="publication-title">Experimental Study of a Fully Passive Flapping Hydrofoil Turbine with a Dual Configuration and a Coupling Mechanism</div>
+              <div class="publication-title">Experimental Study of a Fully Passive Flapping Hydrofoil Turbine with a Dual Configuration and a Coupling Mechanism<sup class="first-author">§</sup></div>
               <div class="publication-meta">Renewable Energy, 208, 191–202</div>
               <div class="links"><a href="https://doi.org/10.1016/j.renene.2023.03.078" target="_blank" rel="noopener noreferrer">DOI</a></div>
             </div>
@@ -763,20 +856,20 @@
           <article class="publication">
             <div class="date">2021</div>
             <div>
-              <div class="publication-title">Experimental Study on Self-Starting Properties of H-Darrieus Turbines</div>
+              <div class="publication-title">Experimental Study on Self-Starting Properties of H-Darrieus Turbines<sup class="first-author">‡</sup></div>
               <div class="publication-meta">Journal of the Korean Wind Energy Association</div>
               <div class="links"><a href="https://doi.org/10.33519/kwea.2021.12.2.002" target="_blank" rel="noopener noreferrer">DOI</a></div>
             </div>
           </article>
 
-          <p class="small-note">Publisher PDFs are not redistributed unless their licenses expressly permit public sharing. DOI and publisher links are used for subscription articles.</p>
+          <p class="small-note">‡ First author. § Co-first author (equal contribution). Publisher PDFs are not redistributed unless their licenses expressly permit public sharing. DOI and publisher links are used for subscription articles.</p>
         </div>
       </div>
     </section>
 
     <section id="presentations">
       <div class="wrap section-grid">
-        <div class="section-label"><p>05</p><h2>Selected Presentations</h2></div>
+        <div class="section-label"><p>05</p><h2>Selected Presentations</h2><p class="section-note">International conference presentations, 2022–2025.</p></div>
         <div>
           <article class="presentation">
             <div class="date">APS DFD 2025</div>
@@ -818,7 +911,7 @@
             <div class="date">AFORE 2022</div>
             <div class="entry">
               <h3>Experimental Investigation on Fully Passive Activation of a Dual Flapping-Foil Turbine with a Coupling Mechanism</h3>
-              <p>Outstanding Paper Award, KSNRE</p>
+              <p>11th Asia-Pacific Forum on Renewable Energy (AFORE 2022)</p>
             </div>
           </article>
         </div>
@@ -827,7 +920,7 @@
 
     <section id="background">
       <div class="wrap section-grid">
-        <div class="section-label"><p>06</p><h2>Background</h2></div>
+        <div class="section-label"><p>06</p><h2>Background &amp; Awards</h2><p class="section-note">Degrees, dissertation topics, specialized training, and recognition.</p></div>
         <div>
           <article class="degree">
             <div class="date">2021–2025</div>
@@ -857,7 +950,7 @@
             <div class="entry">
               <h3>Introduction to Measurement Techniques</h3>
               <p>von Karman Institute for Fluid Dynamics, 30 hours</p>
-              <p>Measurement uncertainty, pressure, force, temperature, flow rate, flow visualization, PIV, LDV, hot-wire techniques, signal processing, and experimental data analysis.</p>
+              <p>Measurement uncertainty, pressure, force, temperature, flow rate, flow visualization, PIV, hot-wire techniques, signal processing, and experimental data analysis.</p>
             </div>
           </article>
 
@@ -865,20 +958,32 @@
             <div class="date">2025</div>
             <div class="entry"><h3>Group Standard Development and Technical Writing Training</h3><p>12-hour professional training program</p></div>
           </article>
+
+          <article class="degree">
+            <div class="date">2022</div>
+            <div class="entry"><h3>Outstanding Paper Award</h3><p>Korean Society for New and Renewable Energy, AFORE 2022</p></div>
+          </article>
+
+          <article class="degree">
+            <div class="date">2021</div>
+            <div class="entry">
+              <h3>Advanced Track, Offshore Wind O&amp;M Technology</h3>
+              <p>Graduate specialized training program</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="skills">
       <div class="wrap section-grid">
-        <div class="section-label"><p>07</p><h2>Methods &amp; Tools</h2></div>
+        <div class="section-label"><p>07</p><h2>Methods &amp; Tools</h2><p class="section-note">Experimental, analytical, and design capabilities.</p></div>
         <div>
-          <ul class="two-column">
+          <ul class="tool-grid">
             <li>Large-scale recirculating-water-channel testing</li>
             <li>Wind-tunnel and flume experiments</li>
             <li>Force, torque, pressure, and motion measurement</li>
-            <li>PIV, LDV, ADV, and flow visualization</li>
-            <li>Sensor calibration and measurement uncertainty</li>
+            <li>PIV, ADV, and flow visualization</li>
             <li>Cycle-resolved and phase-averaged signal analysis</li>
             <li>Repeatability and data-traceability assessment</li>
             <li>MATLAB and Python data processing</li>
@@ -887,22 +992,6 @@
             <li>Experimental apparatus and jig design</li>
             <li>Technical procedures and draft standards</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="awards">
-      <div class="wrap section-grid">
-        <div class="section-label"><p>08</p><h2>Awards</h2></div>
-        <div>
-          <article class="presentation">
-            <div class="date">2025</div>
-            <div class="entry"><h3>Outstanding Paper Award</h3><p>KSME 80th Anniversary Conference</p></div>
-          </article>
-          <article class="presentation">
-            <div class="date">2022</div>
-            <div class="entry"><h3>Outstanding Paper Award</h3><p>Korean Society for New and Renewable Energy</p></div>
-          </article>
         </div>
       </div>
     </section>
@@ -928,6 +1017,27 @@
     <div class="wrap">© <span id="year"></span> Dong-Geon Kim</div>
   </footer>
 
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function () {
+      var toggle = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!toggle || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+      }
+      toggle.addEventListener("click", function () {
+        setOpen(toggle.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.tagName === "A") setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>
