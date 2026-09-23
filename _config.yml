@@ -1,0 +1,18 @@
+# Jekyll configuration — GitHub Pages builds this automatically.
+title: "Dong-Geon Kim, Ph.D."
+author: "Dong-Geon Kim"
+description: "Postdoctoral researcher at KIOST working on biomimetic marine propulsion, flapping-foil hydrokinetic turbines, and experimental hydrodynamics."
+url: "https://halysis.github.io"
+baseurl: ""
+
+email: "dgk@kiost.ac.kr"
+orcid: "0009-0009-4880-030X"
+orcid_url: "https://orcid.org/0009-0009-4880-030X"
+scholar_url: "https://scholar.google.com/citations?user=1XFiB48AAAAJ"
+researchgate_url: "https://www.researchgate.net/profile/Dong-Geon-Kim-4"
+ga_id: "G-KMGZHYY9DK"
+
+# Files Jekyll should not publish.
+exclude:
+  - README.md
+  - index_black_white.html
