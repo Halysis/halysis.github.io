@@ -1,5 +1,5 @@
 :root {
-  --font-sans: "Inter", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  --font-sans: "Inter", "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Arial, Helvetica, sans-serif;
   --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --black: #141412;
   --gray-1: #4c4a45;
@@ -986,4 +986,43 @@ footer {
   .card-page {
     width: min(calc(100% - 30px), 620px);
   }
+}
+
+.lang-switch {
+  margin: 12px 0 0;
+  font-size: 0.86rem;
+}
+
+.lang-switch a {
+  color: var(--accent);
+}
+
+.lang-switch a:hover {
+  color: var(--accent-strong);
+}
+
+.card-note {
+  margin: 14px 0 0;
+  color: var(--gray-2);
+  font-size: 0.82rem;
+}
+
+/* Korean pages: the Latin serif has no Hangul, so set the body copy in the
+   sans stack deliberately rather than letting it fall back mid-paragraph.
+   Wide tracking also breaks Hangul, so it is dialled back. */
+html[lang="ko"] .intro,
+html[lang="ko"] .lead {
+  font-family: var(--font-sans);
+  font-size: 1.06rem;
+  line-height: 1.72;
+  word-break: keep-all;
+}
+
+html[lang="ko"] .card-elsewhere .label,
+html[lang="ko"] .overline {
+  letter-spacing: 0.02em;
+}
+
+html[lang="ko"] h1 {
+  letter-spacing: -0.02em;
 }
