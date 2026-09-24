@@ -139,19 +139,19 @@ header {
   letter-spacing: -0.012em;
 }
 
-nav {
+#site-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 22px;
   font-size: 0.9rem;
 }
 
-nav a {
+#site-nav a {
   color: var(--gray-1);
   text-decoration: none;
 }
 
-nav a:hover {
+#site-nav a:hover {
   color: var(--accent);
 }
 
@@ -579,7 +579,7 @@ footer {
     display: inline-flex;
   }
 
-  nav {
+  #site-nav {
     display: none;
     position: absolute;
     left: 0;
@@ -593,11 +593,11 @@ footer {
     box-shadow: 0 18px 24px -18px rgba(0, 0, 0, 0.35);
   }
 
-  nav.is-open {
+  #site-nav.is-open {
     display: flex;
   }
 
-  nav a {
+  #site-nav a {
     width: min(calc(100% - 30px), var(--page-width));
     margin: 0 auto;
     padding: 11px 0;
@@ -659,9 +659,9 @@ footer {
    --------------------------------------------------------------- */
 
 /* Current page in the navigation */
-.page-research nav a[href$="/research/"],
-.page-publications nav a[href$="/publications/"],
-.page-cv nav a[href$="/cv/"] {
+.page-research #site-nav a[href$="/research/"],
+.page-publications #site-nav a[href$="/publications/"],
+.page-cv #site-nav a[href$="/cv/"] {
   color: var(--black);
   font-weight: 700;
 }
