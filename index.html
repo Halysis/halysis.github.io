@@ -15,6 +15,7 @@ description: "Dong-Geon Kim (김동건), Ph.D. — postdoctoral researcher at KI
       "jobTitle": "Postdoctoral Research Fellow",
       "email": "mailto:{{ site.email }}",
       "url": "{{ site.url }}/",
+      "image": "{{ site.url }}/assets/img/portrait@2x.webp",
       "worksFor": {
         "@type": "Organization",
         "name": "Korea Institute of Ocean Science and Technology",
@@ -47,150 +48,42 @@ description: "Dong-Geon Kim (김동건), Ph.D. — postdoctoral researcher at KI
     }
     </script>
 
-    <div class="hero" id="top">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="overline">Experimental Hydrodynamics / Marine Robotics</p>
-          <h1>Dong-Geon<br>Kim, Ph.D.</h1>
+    <div class="card-page">
+      <img class="portrait"
+           src="{{ site.baseurl }}/assets/img/portrait.webp"
+           srcset="{{ site.baseurl }}/assets/img/portrait.webp 1x, {{ site.baseurl }}/assets/img/portrait@2x.webp 2x"
+           alt="Dong-Geon Kim" width="600" height="600">
 
-          <p class="hero-title">
-            I build and instrument the physical test rigs that decide whether a
-            marine propulsion or energy-harvesting concept actually works in water.
-          </p>
+      <h1>Dong-Geon Kim</h1>
+      <p class="role">Postdoctoral Research Fellow, Korea Institute of Ocean Science and Technology · 김동건</p>
 
-          <div class="actions">
-            <a class="button primary" href="{{ site.baseurl }}/research/">Research</a>
-            <a class="button" href="{{ site.baseurl }}/publications/">Publications</a>
-          </div>
-        </div>
+      <p class="intro">
+        I build and instrument the physical test rigs that decide whether a marine
+        propulsion or energy-harvesting concept actually works in water. Most of that
+        happens in a circulating water channel: a mechanism arrives — a pair of foils
+        that should flap on their own, a tail that should make thrust the way a fish's
+        does — and my job is to turn it into something measurable.
+      </p>
+      <p class="intro">
+        I work on fully passive flapping-foil turbines, biomimetic caudal-fin
+        propulsion, and the measurement procedures that let two laboratories report
+        the same number for the same thruster.
+      </p>
 
-        <aside class="hero-meta" aria-label="Profile information">
-          <p><strong>Position</strong>Postdoctoral Research Fellow<br>Korea Institute of Ocean Science and Technology</p>
-          <p><strong>Name</strong>김동건 (Kim, Dong-Geon)</p>
-          <p><strong>Email</strong><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-          <p><strong>ORCID</strong><a href="{{ site.orcid_url }}" rel="me noopener noreferrer" target="_blank">{{ site.orcid }}</a></p>
-        </aside>
-      </div>
+      <nav class="card-links" aria-label="Sections">
+        <a href="{{ site.baseurl }}/research/">Research</a>
+        <a href="{{ site.baseurl }}/publications/">Publications</a>
+        <a href="{{ site.baseurl }}/cv/">CV</a>
+      </nav>
+
+      <p class="card-elsewhere">
+        <span class="label">Elsewhere</span>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ site.orcid_url }}" rel="me noopener noreferrer" target="_blank">ORCID</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ site.scholar_url }}" rel="me noopener noreferrer" target="_blank">Google Scholar</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ site.researchgate_url }}" rel="me noopener noreferrer" target="_blank">ResearchGate</a>
+      </p>
     </div>
-
-    <!-- ===================================================================
-         PHOTO SLOT — delete this comment and uncomment the block below once
-         a photo exists at assets/img/rig.jpg (about 1600px wide).
-         Keep width and height so the page does not jump while it loads.
-
-    <section style="padding-top:0;border-bottom:1px solid var(--gray-3);">
-      <div class="wrap">
-        <figure class="figure" style="margin-top:0;">
-          <img src="{{ site.baseurl }}/assets/img/rig.jpg" alt="Dual flapping-foil turbine under test in a circulating water channel" width="1600" height="800">
-          <figcaption>Dual flapping-foil hydrokinetic turbine under test in the large circulating water channel at KIOST.</figcaption>
-        </figure>
-      </div>
-    </section>
-         =================================================================== -->
-
-    <section id="about">
-      <div class="wrap section-grid">
-        <div class="section-label"><p>01</p><h2>What I do</h2><p class="section-note">Written in the first person, because a CV already exists.</p></div>
-        <div class="statement">
-          <p>
-            A concept usually arrives as a mechanism — a pair of foils that should
-            flap on their own, a tail that should make thrust the way a fish's does.
-            My job is to turn it into something measurable: a rig that constrains the
-            motion I care about, load cells that catch the forces in every direction,
-            and a procedure repeatable enough that the numbers still mean something a
-            year later.
-          </p>
-          <p>
-            Two problems keep coming back. Fully passive systems are harder to
-            characterise than driven ones — nothing imposes the motion, so the
-            operating point emerges from the fluid–structure coupling and you have to
-            measure your way to it rather than set it. And the loads nobody sizes for
-            are often the ones that matter: in our yaw-misalignment tests the
-            flow-perpendicular load turned out to be large and strongly periodic,
-            which is not how a conventional rotary turbine behaves.
-          </p>
-          <p>
-            A third strand grew out of the first two. If a test result is going to be
-            used to compare two vehicles, the procedure has to be written down, not
-            remembered. I now spend part of my time drafting measurement procedures
-            and group standards for marine unmanned systems.
-          </p>
-
-          <a class="more-link" href="{{ site.baseurl }}/research/">Read the research in detail →</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="strands">
-      <div class="wrap section-grid">
-        <div class="section-label"><p>02</p><h2>Research lines</h2><p class="section-note">Three strands, one facility.</p></div>
-        <div>
-          <div class="card-grid">
-            <article class="card">
-              <h3>Fully passive flapping-foil turbines</h3>
-              <p>Self-starting behaviour, bidirectional operation, power transmission, and the system loads that come with non-rotary motion.</p>
-            </article>
-            <article class="card">
-              <h3>Biomimetic caudal-fin propulsion</h3>
-              <p>Multi-DOF tail kinematics, thrust generation, and the yaw recoil an underwater vehicle has to absorb.</p>
-            </article>
-            <article class="card">
-              <h3>Test and evaluation</h3>
-              <p>Measurement procedures, repeatability, and traceability for marine unmanned systems.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="selected">
-      <div class="wrap section-grid">
-        <div class="section-label"><p>03</p><h2>Selected work</h2><p class="section-note">Three of five peer-reviewed papers.</p></div>
-        <div>
-          <article class="publication">
-            <div class="date">2026</div>
-            <div>
-              <div class="publication-title">Experimental Investigation of a Fully-Passive Bidirectional Hydrokinetic Turbine With Elliptical Foils in Tandem for Tidal Stream Power Generation<sup class="first-author">‡</sup></div>
-              <div class="publication-meta">International Journal of Energy Research, 2026(1), 5594961</div>
-              <div class="links"><a href="https://doi.org/10.1155/er/5594961" target="_blank" rel="noopener noreferrer">DOI</a></div>
-            </div>
-          </article>
-
-          <article class="publication">
-            <div class="date">2024</div>
-            <div>
-              <div class="publication-title">Experimental Investigation of the Yaw Misalignment Effect on the Power Performance and System Loading of a Flapping-Foil Hydrokinetic Turbine<sup class="first-author">‡</sup></div>
-              <div class="publication-meta">Energy Science &amp; Engineering, 12(12), 5555–5565</div>
-              <div class="links"><a href="https://doi.org/10.1002/ese3.1969" target="_blank" rel="noopener noreferrer">DOI</a></div>
-            </div>
-          </article>
-
-          <article class="publication">
-            <div class="date">2024</div>
-            <div>
-              <div class="publication-title">An Experimental Investigation of the Performance of a Power Transmission Mechanism for a Flapping-Foil Hydrokinetic Turbine<sup class="first-author">‡</sup></div>
-              <div class="publication-meta">Renewable Energy, 237, 121636</div>
-              <div class="links"><a href="https://doi.org/10.1016/j.renene.2024.121636" target="_blank" rel="noopener noreferrer">DOI</a></div>
-            </div>
-          </article>
-
-          <a class="more-link" href="{{ site.baseurl }}/publications/">All publications and presentations →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="wrap contact-box">
-        <div>
-          <p class="overline">Contact</p>
-          <h2>Research collaboration and professional inquiries.</h2>
-          <p>Biomimetic propulsion, marine robotics, experimental hydrodynamics, fluid–structure interaction, test and evaluation, and hydrokinetic energy systems.</p>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-          <a href="{{ site.scholar_url }}" aria-label="Google Scholar profile" rel="me noopener noreferrer" target="_blank">Google Scholar</a>
-          <a href="{{ site.orcid_url }}" aria-label="ORCID profile" rel="me noopener noreferrer" target="_blank">ORCID</a>
-          <a href="{{ site.researchgate_url }}" aria-label="ResearchGate profile" rel="me noopener noreferrer" target="_blank">ResearchGate</a>
-        </div>
-      </div>
-    </section>

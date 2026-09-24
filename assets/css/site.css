@@ -255,10 +255,30 @@ h1 {
 }
 
 .hero-meta {
-  border-top: 1px solid var(--black);
-  padding-top: 18px;
   font-size: 0.92rem;
 }
+
+.portrait {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0 0 24px;
+}
+
+.hero-meta-items {
+  border-top: 1px solid var(--black);
+  padding-top: 18px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .portrait { filter: brightness(0.93); }
+}
+
+:root[data-theme="dark"] .portrait { filter: brightness(0.93); }
+:root[data-theme="light"] .portrait { filter: none; }
 
 .hero-meta p {
   margin: 0 0 13px;
@@ -832,5 +852,138 @@ footer {
   .metrics {
     grid-template-columns: 1fr;
     gap: 26px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Home — a single landing card, no scrolling content
+   --------------------------------------------------------------- */
+
+.page-home header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.page-home .brand,
+.page-home #site-nav,
+.page-home .nav-toggle {
+  display: none;
+}
+
+.page-home .nav {
+  justify-content: flex-end;
+}
+
+.page-home footer {
+  display: none;
+}
+
+.page-home main {
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding: 90px 0 70px;
+}
+
+.card-page {
+  width: min(calc(100% - 48px), 620px);
+  margin: 0 auto;
+}
+
+.card-page .portrait {
+  max-width: 104px;
+  margin-bottom: 26px;
+}
+
+.card-page h1 {
+  margin: 0;
+  font-size: clamp(2.3rem, 6vw, 3.1rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.card-page .role {
+  margin: 14px 0 0;
+  color: var(--gray-1);
+  font-size: 0.95rem;
+}
+
+.card-page .intro {
+  margin: 26px 0 0;
+  font-family: var(--font-serif);
+  font-size: 1.16rem;
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+.card-page .intro + .intro {
+  margin-top: 16px;
+}
+
+/* Section links — spelled out, never icons */
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.card-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid var(--black);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.card-links a:hover {
+  color: var(--white);
+  background: var(--black);
+}
+
+.card-elsewhere {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-3);
+  font-size: 0.9rem;
+}
+
+.card-elsewhere .label {
+  color: var(--gray-2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.card-elsewhere a {
+  color: var(--accent);
+}
+
+.card-elsewhere a:hover {
+  color: var(--accent-strong);
+}
+
+@media (max-width: 620px) {
+  .page-home main {
+    min-height: auto;
+    padding: 76px 0 56px;
+  }
+
+  .card-page {
+    width: min(calc(100% - 30px), 620px);
   }
 }
