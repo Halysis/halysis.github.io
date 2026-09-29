@@ -856,10 +856,8 @@ footer {
     gap: 26px;
   }
 }
-
 /* ---------------------------------------------------------------
-   Home — one filled block: portrait + identity across the top,
-   contact rail on the left, everything else on the right
+   Home — one narrow column: portrait, name, intro, links
    --------------------------------------------------------------- */
 
 .page-home header {
@@ -890,38 +888,34 @@ footer {
   display: flex;
   align-items: center;
   min-height: 100svh;
-  padding: 86px 0 64px;
+  padding: 90px 0 70px;
 }
 
 .card-page {
-  width: min(calc(100% - 40px), 760px);
+  width: min(calc(100% - 48px), 620px);
   margin: 0 auto;
 }
 
 .card-page .portrait {
-  max-width: 100%;
-  margin: 0;
+  max-width: 104px;
+  margin: 0 0 26px;
 }
 
-.card-id {
-  align-self: end;
-}
-
-.card-id h1 {
+.card-page h1 {
   margin: 0;
-  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
-  line-height: 1;
+  font-size: clamp(2.3rem, 6vw, 3.1rem);
+  line-height: 1.02;
   letter-spacing: -0.035em;
 }
 
-.card-id .role {
-  margin: 12px 0 0;
+.card-page .role {
+  margin: 14px 0 0;
   color: var(--gray-1);
   font-size: 0.95rem;
 }
 
 .lang-switch {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
   font-size: 0.86rem;
 }
 
@@ -933,69 +927,24 @@ footer {
   color: var(--accent-strong);
 }
 
-/* Left rail: contact and profiles, stacked */
-.card-side {
-  padding-top: 18px;
-  border-top: 1px solid var(--black);
-}
-
-.card-side .label {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--gray-2);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-.card-side ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 0.9rem;
-}
-
-.card-side li {
-  margin-bottom: 9px;
-}
-
-.card-side li:last-child {
-  margin-bottom: 0;
-}
-
-.card-side a {
-  color: var(--accent);
-}
-
-.card-side a:hover {
-  color: var(--accent-strong);
-}
-
-/* Right column */
-.card-main {
-  padding-top: 18px;
-  border-top: 1px solid var(--black);
-}
-
-.card-main .intro {
-  max-width: 72ch;
-  margin: 0 0 18px;
+.card-page .intro {
+  margin: 26px 0 0;
   font-family: var(--font-serif);
-  font-size: 1.14rem;
-  line-height: 1.6;
+  font-size: 1.16rem;
+  line-height: 1.62;
   text-wrap: pretty;
 }
 
-.card-main .intro:last-of-type {
-  margin-bottom: 0;
+.card-page .intro + .intro {
+  margin-top: 16px;
 }
 
+/* Section links — spelled out, never icons */
 .card-links {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 32px;
 }
 
 .card-links a {
@@ -1021,49 +970,34 @@ footer {
   font-size: 0.82rem;
 }
 
-@media (max-width: 760px) {
-  .page-home main {
-    min-height: auto;
-    padding: 74px 0 54px;
-  }
-
-  .card-page {
-    grid-template-columns: 1fr;
-    row-gap: 22px;
-    width: min(calc(100% - 30px), 900px);
-  }
-
-  .card-page .portrait {
-    max-width: 128px;
-  }
-
-  .card-side {
-    order: 3;
-  }
+.card-elsewhere {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-3);
+  font-size: 0.9rem;
 }
 
-.lang-switch {
-  margin: 12px 0 0;
-  font-size: 0.86rem;
+.card-elsewhere .label {
+  color: var(--gray-2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
-.lang-switch a {
+.card-elsewhere a {
   color: var(--accent);
 }
 
-.lang-switch a:hover {
+.card-elsewhere a:hover {
   color: var(--accent-strong);
 }
 
-.card-note {
-  margin: 14px 0 0;
-  color: var(--gray-2);
-  font-size: 0.82rem;
-}
-
-/* Korean pages: the Latin serif has no Hangul, so set the body copy in the
-   sans stack deliberately rather than letting it fall back mid-paragraph.
-   Wide tracking also breaks Hangul, so it is dialled back. */
+/* Korean typography: the Latin serif has no Hangul */
 html[lang="ko"] .intro,
 html[lang="ko"] .lead {
   font-family: var(--font-sans);
@@ -1081,245 +1015,13 @@ html[lang="ko"] h1 {
   letter-spacing: -0.02em;
 }
 
-/* ---------------------------------------------------------------
-   Home — the page opens as a figure: a schematic of the mechanism,
-   then the caption block that identifies who measured it
-   --------------------------------------------------------------- */
-
-.fig-hero {
-  max-width: none;
-  margin: 0 0 clamp(24px, 2.6vw, 34px);
-}
-
-.fig-hero svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  color: var(--black);
-}
-
-.fig-wall,
-.fig-axis {
-  stroke: var(--gray-3);
-  fill: none;
-}
-
-.fig-axis {
-  stroke-dasharray: 4 6;
-}
-
-.fig-foil {
-  fill: var(--black);
-  stroke: none;
-}
-
-.fig-link {
-  stroke: var(--gray-2);
-  stroke-width: 2;
-  fill: none;
-}
-
-.fig-joint {
-  fill: var(--white);
-  stroke: var(--gray-2);
-  stroke-width: 2;
-}
-
-.fig-flow {
-  stroke: var(--accent);
-  stroke-width: 2;
-  fill: none;
-}
-
-.fig-arrowhead {
-  fill: var(--accent);
-}
-
-.fig-label {
-  fill: var(--gray-2);
-  font-family: var(--font-sans);
-  font-size: 19px;
-  font-style: italic;
-}
-
-.fig-dim {
-  stroke: var(--gray-2);
-  stroke-width: 1.5;
-  fill: none;
-}
-
-/* the motion is the point: it is passive, so it eases rather than ticks */
-.foil-a { animation: heave 4.4s ease-in-out infinite; }
-.foil-b { animation: heave 4.4s ease-in-out infinite; animation-delay: -2.2s; }
-.foil-a .pitch { animation: pitch 4.4s ease-in-out infinite; }
-.foil-b .pitch { animation: pitch 4.4s ease-in-out infinite; animation-delay: -2.2s; }
-
-.pitch {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-@keyframes heave {
-  0%, 100% { transform: translateY(-52px); }
-  50%      { transform: translateY(52px); }
-}
-
-@keyframes pitch {
-  0%, 100% { transform: rotate(20deg); }
-  50%      { transform: rotate(-20deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .foil-a, .foil-b, .foil-a .pitch, .foil-b .pitch { animation: none; }
-}
-
-.fig-caption {
-  margin: 14px 0 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--gray-3);
-  color: var(--gray-2);
-  font-size: 0.84rem;
-  line-height: 1.5;
-  text-wrap: balance;
-}
-
-.fig-caption b {
-  color: var(--gray-1);
-  font-weight: 700;
-}
-
-/* Identity sits below the figure, the way a caption names its author */
-.id-row {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin: clamp(34px, 4vw, 52px) 0 0;
-}
-
-.id-row .portrait {
-  flex: none;
-  width: 76px;
-  max-width: 76px;
-  margin: 0;
-}
-
-.id-row h1 {
-  margin: 0;
-  font-size: clamp(1.9rem, 3vw, 2.6rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-}
-
-.id-row .role {
-  margin: 5px 0 0;
-  color: var(--gray-1);
-  font-size: 0.92rem;
-}
-
-.id-row .role a {
-  color: var(--accent);
-}
-
-.home-intro {
-  margin: 26px 0 0;
-  text-wrap: balance;
-  font-family: var(--font-serif);
-  font-size: clamp(1.08rem, 0.5vw + 1rem, 1.28rem);
-  line-height: 1.62;
-}
-
-html[lang="ko"] .home-intro {
-  font-family: var(--font-sans);
-  font-size: clamp(1.02rem, 0.45vw + 0.95rem, 1.18rem);
-  line-height: 1.75;
-  word-break: keep-all;
-}
-
-/* Measured results — the thing only an experimentalist has */
-.results {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0 clamp(24px, 3vw, 48px);
-  margin: clamp(30px, 3.5vw, 46px) 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.results li {
-  padding-top: 14px;
-  border-top: 2px solid var(--accent);
-}
-
-.results .val {
-  display: block;
-  font-size: clamp(1.7rem, 2.6vw, 2.4rem);
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-}
-
-.results .cap {
-  display: block;
-  margin-top: 8px;
-  color: var(--gray-1);
-  font-size: 0.86rem;
-  line-height: 1.45;
-}
-
-.results .src {
-  display: block;
-  margin-top: 6px;
-  color: var(--gray-2);
-  font-size: 0.76rem;
-}
-
-.home-foot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px 28px;
-  margin: clamp(34px, 4vw, 52px) 0 0;
-  padding-top: 22px;
-  border-top: 1px solid var(--black);
-}
-
-.home-foot .card-links {
-  margin: 0;
-}
-
-.home-foot .elsewhere {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 14px;
-  margin: 0;
-  font-size: 0.88rem;
-}
-
-.home-foot .elsewhere .label {
-  color: var(--gray-2);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-html[lang="ko"] .home-foot .elsewhere .label {
-  letter-spacing: 0.02em;
-}
-
-.home-foot .elsewhere a {
-  color: var(--accent);
-}
-
-@media (max-width: 760px) {
-  .results {
-    grid-template-columns: 1fr;
-    gap: 20px;
+@media (max-width: 620px) {
+  .page-home main {
+    min-height: auto;
+    padding: 76px 0 56px;
   }
 
-  .home-foot {
-    flex-direction: column;
-    align-items: flex-start;
+  .card-page {
+    width: min(calc(100% - 30px), 620px);
   }
 }

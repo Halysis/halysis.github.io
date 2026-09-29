@@ -53,83 +53,23 @@ description: "Dong-Geon Kim (김동건), Ph.D. — postdoctoral researcher at KI
     </script>
 
     <div class="card-page">
-      <figure class="fig-hero">
-        <svg viewBox="0 0 1000 400" role="img" aria-labelledby="figTitle">
-          <title id="figTitle">Schematic of two tandem hydrofoils heaving and pitching in a channel flow</title>
+      <img class="portrait"
+           src="{{ site.baseurl }}/assets/img/portrait.webp"
+           srcset="{{ site.baseurl }}/assets/img/portrait.webp 1x, {{ site.baseurl }}/assets/img/portrait@2x.webp 2x"
+           alt="Dong-Geon Kim" width="600" height="600">
 
-          <!-- channel -->
-          <line class="fig-wall" x1="0" y1="34" x2="1000" y2="34" stroke-width="2"/>
-          <line class="fig-wall" x1="0" y1="366" x2="1000" y2="366" stroke-width="2"/>
+      <h1>Dong-Geon Kim</h1>
+      <p class="role">김동건</p>
+      <p class="lang-switch"><a href="{{ site.baseurl }}/ko/" hreflang="ko" lang="ko">한국어</a></p>
 
-          <!-- oncoming flow -->
-          <g class="fig-flow">
-            <line x1="24" y1="108" x2="150" y2="108"/>
-            <line x1="24" y1="176" x2="150" y2="176"/>
-            <line x1="24" y1="244" x2="150" y2="244"/>
-            <line x1="24" y1="312" x2="150" y2="312"/>
-          </g>
-          <g class="fig-arrowhead">
-            <polygon points="150,102 166,108 150,114"/>
-            <polygon points="150,170 166,176 150,182"/>
-            <polygon points="150,238 166,244 150,250"/>
-            <polygon points="150,306 166,312 150,318"/>
-          </g>
-          <text class="fig-label" x="24" y="88">U∞</text>
-
-          <!-- heave axes -->
-          <line class="fig-axis" x1="420" y1="70" x2="420" y2="330" stroke-width="1.5"/>
-          <line class="fig-axis" x1="700" y1="70" x2="700" y2="330" stroke-width="1.5"/>
-
-          <!-- heave dimension -->
-          <g class="fig-dim">
-            <line x1="330" y1="148" x2="330" y2="252"/>
-            <line x1="322" y1="148" x2="338" y2="148"/>
-            <line x1="322" y1="252" x2="338" y2="252"/>
-          </g>
-          <text class="fig-label" x="286" y="206">h(t)</text>
-
-          <!-- foils -->
-          <g class="foil-a">
-            <g class="pitch">
-              <ellipse class="fig-foil" cx="420" cy="200" rx="88" ry="13"/>
-            </g>
-            <circle class="fig-joint" cx="420" cy="200" r="6"/>
-          </g>
-          <g class="foil-b">
-            <g class="pitch">
-              <ellipse class="fig-foil" cx="700" cy="200" rx="88" ry="13"/>
-            </g>
-            <circle class="fig-joint" cx="700" cy="200" r="6"/>
-            <line class="fig-axis" x1="700" y1="200" x2="834" y2="200" stroke-width="1.5"/>
-            <path class="fig-dim" d="M 806 200 A 106 106 0 0 0 800 163"/>
-            <text class="fig-label" x="846" y="186">θ(t)</text>
-          </g>
-        </svg>
-      </figure>
-      <figcaption class="fig-caption">
-        <b>Schematic.</b> Two hydrofoils in tandem, heaving and pitching in a channel
-        flow. Nothing drives them — the motion emerges from the coupling with the water.
-      </figcaption>
-
-      <div class="id-row">
-        <img class="portrait"
-             src="{{ site.baseurl }}/assets/img/portrait.webp"
-             srcset="{{ site.baseurl }}/assets/img/portrait.webp 1x, {{ site.baseurl }}/assets/img/portrait@2x.webp 2x"
-             alt="Dong-Geon Kim" width="600" height="600">
-        <div>
-          <h1>Dong-Geon Kim <span style="color:var(--gray-2);font-weight:400;">김동건</span></h1>
-          <p class="role">Postdoctoral researcher, Korea Institute of Ocean Science and Technology · <a href="{{ site.baseurl }}/ko/" hreflang="ko" lang="ko">한국어</a></p>
-        </div>
-      </div>
-
-      <p class="home-intro">
+      <p class="intro">
         I am a postdoctoral researcher at the Korea Institute of Ocean Science and
         Technology, studying underwater vehicle propulsion and hydrokinetic energy
         experimentally. From laboratory tanks to large-scale test facilities, I design
         the test apparatus and instrumentation, set up and run the measurements, and
         see the work through to the analysis.
       </p>
-      <p class="home-intro">
+      <p class="intro">
         I measure the motion and loading of devices that move in water, and establish
         why they behave as they do. Current subjects are fully passive flapping-foil
         turbines and underwater vehicles driven by biomimetic caudal-fin propulsion.
@@ -137,22 +77,20 @@ description: "Dong-Geon Kim (김동건), Ph.D. — postdoctoral researcher at KI
         that the same device returns the same number when another laboratory measures it.
       </p>
 
+      <nav class="card-links" aria-label="Sections">
+        <a href="{{ site.baseurl }}/research/">Research</a>
+        <a href="{{ site.baseurl }}/publications/">Publications</a>
+        <a href="{{ site.baseurl }}/cv/">CV</a>
+      </nav>
 
-      <div class="home-foot">
-        <nav class="card-links" aria-label="Sections">
-          <a href="{{ site.baseurl }}/research/">Research</a>
-          <a href="{{ site.baseurl }}/publications/">Publications</a>
-          <a href="{{ site.baseurl }}/cv/">CV</a>
-        </nav>
-        <p class="elsewhere">
-          <span class="label">Elsewhere</span>
-          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-          <span aria-hidden="true">·</span>
-          <a href="{{ site.orcid_url }}" rel="me noopener noreferrer" target="_blank">ORCID</a>
-          <span aria-hidden="true">·</span>
-          <a href="{{ site.scholar_url }}" rel="me noopener noreferrer" target="_blank">Google Scholar</a>
-          <span aria-hidden="true">·</span>
-          <a href="{{ site.researchgate_url }}" rel="me noopener noreferrer" target="_blank">ResearchGate</a>
-        </p>
-      </div>
+      <p class="card-elsewhere">
+        <span class="label">Elsewhere</span>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ site.orcid_url }}" rel="me noopener noreferrer" target="_blank">ORCID</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ site.scholar_url }}" rel="me noopener noreferrer" target="_blank">Google Scholar</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ site.researchgate_url }}" rel="me noopener noreferrer" target="_blank">ResearchGate</a>
+      </p>
     </div>
