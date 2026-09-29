@@ -6,45 +6,107 @@ og_locale: ko_KR
 alt_lang: en
 alt_url: /
 title: "김동건 — 해양 추진 실험유체역학"
-description: "한국해양과학기술원 연수연구원 김동건. 해양 추진과 유체동력 에너지 분야 실험유체역학 — 시험 장치와 계측 시스템 설계, 소형 수조부터 대형 수조까지의 실험 구성과 데이터 분석."
+description: "한국해양과학기술원 박사후 연수연구원 김동건. 물속에서 움직이는 장치의 운동과 하중 특성을 계측하고 거동의 원인을 규명합니다. 완전 수동형 진동익 터빈, 생체모방 꼬리지느러미 추진 수중 운동체."
 ---
 
     <div class="card-page">
-      <img class="portrait"
-           src="{{ site.baseurl }}/assets/img/portrait.webp"
-           srcset="{{ site.baseurl }}/assets/img/portrait.webp 1x, {{ site.baseurl }}/assets/img/portrait@2x.webp 2x"
-           alt="김동건" width="600" height="600">
+      <figure class="fig-hero">
+        <svg viewBox="0 0 1000 400" role="img" aria-labelledby="figTitle">
+          <title id="figTitle">Schematic of two tandem hydrofoils heaving and pitching in a channel flow</title>
 
-      <h1>김동건</h1>
-      <p class="role" lang="en">Dong-Geon Kim</p>
-      <p class="lang-switch"><a href="{{ site.baseurl }}/" hreflang="en" lang="en">English</a></p>
+          <!-- channel -->
+          <line class="fig-wall" x1="0" y1="34" x2="1000" y2="34" stroke-width="2"/>
+          <line class="fig-wall" x1="0" y1="366" x2="1000" y2="366" stroke-width="2"/>
 
-      <p class="intro">
-        한국해양과학기술원의 박사후 연수연구원입니다. 해양 추진과 유체동력 에너지 분야의
-        실험유체역학을 연구합니다. 시험 장치와 계측 시스템을 설계하고, 소형 수조부터
-        대형 수조까지의 규모에서 실험을 구성하고 계측, 데이터 분석까지 진행합니다.
+          <!-- oncoming flow -->
+          <g class="fig-flow">
+            <line x1="24" y1="108" x2="150" y2="108"/>
+            <line x1="24" y1="176" x2="150" y2="176"/>
+            <line x1="24" y1="244" x2="150" y2="244"/>
+            <line x1="24" y1="312" x2="150" y2="312"/>
+          </g>
+          <g class="fig-arrowhead">
+            <polygon points="150,102 166,108 150,114"/>
+            <polygon points="150,170 166,176 150,182"/>
+            <polygon points="150,238 166,244 150,250"/>
+            <polygon points="150,306 166,312 150,318"/>
+          </g>
+          <text class="fig-label" x="24" y="88">U∞</text>
+
+          <!-- heave axes -->
+          <line class="fig-axis" x1="420" y1="70" x2="420" y2="330" stroke-width="1.5"/>
+          <line class="fig-axis" x1="700" y1="70" x2="700" y2="330" stroke-width="1.5"/>
+
+          <!-- heave dimension -->
+          <g class="fig-dim">
+            <line x1="330" y1="148" x2="330" y2="252"/>
+            <line x1="322" y1="148" x2="338" y2="148"/>
+            <line x1="322" y1="252" x2="338" y2="252"/>
+          </g>
+          <text class="fig-label" x="286" y="206">h(t)</text>
+
+          <!-- foils -->
+          <g class="foil-a">
+            <g class="pitch">
+              <ellipse class="fig-foil" cx="420" cy="200" rx="88" ry="13"/>
+            </g>
+            <circle class="fig-joint" cx="420" cy="200" r="6"/>
+          </g>
+          <g class="foil-b">
+            <g class="pitch">
+              <ellipse class="fig-foil" cx="700" cy="200" rx="88" ry="13"/>
+            </g>
+            <circle class="fig-joint" cx="700" cy="200" r="6"/>
+            <line class="fig-axis" x1="700" y1="200" x2="834" y2="200" stroke-width="1.5"/>
+            <path class="fig-dim" d="M 806 200 A 106 106 0 0 0 800 163"/>
+            <text class="fig-label" x="846" y="186">θ(t)</text>
+          </g>
+        </svg>
+      </figure>
+      <figcaption class="fig-caption">
+        <b>모식도.</b> 채널 유동 속 직렬 수중익 두 장의 상하·피치 운동. 구동원 없이 물과의
+        연성에서 저절로 생기는 운동입니다.
+      </figcaption>
+
+      <div class="id-row">
+        <img class="portrait"
+             src="{{ site.baseurl }}/assets/img/portrait.webp"
+             srcset="{{ site.baseurl }}/assets/img/portrait.webp 1x, {{ site.baseurl }}/assets/img/portrait@2x.webp 2x"
+             alt="김동건" width="600" height="600">
+        <div>
+          <h1>김동건 <span style="color:var(--gray-2);font-weight:400;" lang="en">Dong-Geon Kim</span></h1>
+          <p class="role">한국해양과학기술원 박사후 연수연구원 · <a href="{{ site.baseurl }}/" hreflang="en" lang="en">English</a></p>
+        </div>
+      </div>
+
+      <p class="home-intro">
+        한국해양과학기술원 박사후 연수연구원으로, 수중 운동체의 추진과 유체동력 에너지 분야를
+        실험으로 연구합니다. 소형 수조부터 대형 시험 시설까지, 시험 장치와 계측계를 설계하고
+        실험을 구성해 계측하며, 데이터 분석까지 직접 진행합니다.
       </p>
-      <p class="intro">
-        현재는 완전 수동형 진동익 터빈, 생체모방 꼬리지느러미 추진 방식의 수중 운동체,
-        해양 무인이동체 시험평가 절차를 연구하고 있습니다.
+      <p class="home-intro">
+        물속에서 움직이는 장치의 운동과 하중 특성을 계측하고, 거동의 원인을 규명합니다. 현재는
+        완전 수동형 진동익 터빈, 생체모방 꼬리지느러미 추진 방식의 수중 운동체 관련 연구를
+        진행하고 있습니다. 다른 기관에서 측정해도 같은 값이 나오도록, 해양 무인이동체의
+        시험평가 절차를 정립하는 일도 하고 있습니다.
       </p>
 
-      <nav class="card-links" aria-label="섹션">
-        <a href="{{ site.baseurl }}/research/">연구</a>
-        <a href="{{ site.baseurl }}/publications/">논문</a>
-        <a href="{{ site.baseurl }}/cv/">이력</a>
-      </nav>
 
-      <p class="card-note">연구·논문·이력 페이지는 영문으로 제공됩니다.</p>
-
-      <p class="card-elsewhere">
-        <span class="label">외부 링크</span>
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-        <span aria-hidden="true">·</span>
-        <a href="{{ site.orcid_url }}" rel="me noopener noreferrer" target="_blank">ORCID</a>
-        <span aria-hidden="true">·</span>
-        <a href="{{ site.scholar_url }}" rel="me noopener noreferrer" target="_blank">Google Scholar</a>
-        <span aria-hidden="true">·</span>
-        <a href="{{ site.researchgate_url }}" rel="me noopener noreferrer" target="_blank">ResearchGate</a>
-      </p>
+      <div class="home-foot">
+        <nav class="card-links" aria-label="섹션">
+          <a href="{{ site.baseurl }}/research/">연구</a>
+          <a href="{{ site.baseurl }}/publications/">논문</a>
+          <a href="{{ site.baseurl }}/cv/">이력</a>
+        </nav>
+        <p class="elsewhere">
+          <span class="label">외부 링크</span>
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          <span aria-hidden="true">·</span>
+          <a href="{{ site.orcid_url }}" rel="me noopener noreferrer" target="_blank">ORCID</a>
+          <span aria-hidden="true">·</span>
+          <a href="{{ site.scholar_url }}" rel="me noopener noreferrer" target="_blank">Google Scholar</a>
+          <span aria-hidden="true">·</span>
+          <a href="{{ site.researchgate_url }}" rel="me noopener noreferrer" target="_blank">ResearchGate</a>
+        </p>
+      </div>
     </div>
