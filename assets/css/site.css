@@ -10,7 +10,7 @@
   --accent: #0a5c68;
   --accent-strong: #073f48;
   --header-bg: rgba(247, 246, 242, 0.94);
-  --page-width: 1240px;
+  --page-width: 1080px;
   color-scheme: light dark;
 }
 
@@ -50,8 +50,6 @@
 
 html {
   scroll-behavior: smooth;
-  /* 16px up to ~1280px wide, easing to 18.5px on large displays */
-  font-size: clamp(16px, 0.22vw + 13.2px, 18.5px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -63,7 +61,7 @@ body {
   color: var(--black);
   background: var(--white);
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.6;
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
@@ -98,7 +96,7 @@ button:focus-visible {
 }
 
 .wrap {
-  width: min(calc(100% - 48px), clamp(1000px, 72vw, var(--page-width)));
+  width: min(calc(100% - 48px), var(--page-width));
   margin: 0 auto;
 }
 
@@ -856,8 +854,9 @@ footer {
     gap: 26px;
   }
 }
+
 /* ---------------------------------------------------------------
-   Home — one narrow column: portrait, name, intro, links
+   Home — a single landing card, no scrolling content
    --------------------------------------------------------------- */
 
 .page-home header {
@@ -898,7 +897,7 @@ footer {
 
 .card-page .portrait {
   max-width: 104px;
-  margin: 0 0 26px;
+  margin-bottom: 26px;
 }
 
 .card-page h1 {
@@ -912,19 +911,6 @@ footer {
   margin: 14px 0 0;
   color: var(--gray-1);
   font-size: 0.95rem;
-}
-
-.lang-switch {
-  margin: 12px 0 0;
-  font-size: 0.86rem;
-}
-
-.lang-switch a {
-  color: var(--accent);
-}
-
-.lang-switch a:hover {
-  color: var(--accent-strong);
 }
 
 .card-page .intro {
@@ -964,12 +950,6 @@ footer {
   background: var(--black);
 }
 
-.card-note {
-  margin: 14px 0 0;
-  color: var(--gray-2);
-  font-size: 0.82rem;
-}
-
 .card-elsewhere {
   display: flex;
   flex-wrap: wrap;
@@ -997,7 +977,39 @@ footer {
   color: var(--accent-strong);
 }
 
-/* Korean typography: the Latin serif has no Hangul */
+@media (max-width: 620px) {
+  .page-home main {
+    min-height: auto;
+    padding: 76px 0 56px;
+  }
+
+  .card-page {
+    width: min(calc(100% - 30px), 620px);
+  }
+}
+
+.lang-switch {
+  margin: 12px 0 0;
+  font-size: 0.86rem;
+}
+
+.lang-switch a {
+  color: var(--accent);
+}
+
+.lang-switch a:hover {
+  color: var(--accent-strong);
+}
+
+.card-note {
+  margin: 14px 0 0;
+  color: var(--gray-2);
+  font-size: 0.82rem;
+}
+
+/* Korean pages: the Latin serif has no Hangul, so set the body copy in the
+   sans stack deliberately rather than letting it fall back mid-paragraph.
+   Wide tracking also breaks Hangul, so it is dialled back. */
 html[lang="ko"] .intro,
 html[lang="ko"] .lead {
   font-family: var(--font-sans);
@@ -1013,15 +1025,4 @@ html[lang="ko"] .overline {
 
 html[lang="ko"] h1 {
   letter-spacing: -0.02em;
-}
-
-@media (max-width: 620px) {
-  .page-home main {
-    min-height: auto;
-    padding: 76px 0 56px;
-  }
-
-  .card-page {
-    width: min(calc(100% - 30px), 620px);
-  }
 }
