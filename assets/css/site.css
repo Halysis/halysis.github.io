@@ -765,6 +765,12 @@ footer {
   margin: 34px 0 0;
 }
 
+/* Section 01 video: same measure as the body paragraphs above it */
+#turbines .figure {
+  max-width: 62ch;
+  font-size: 1.05rem;
+}
+
 .figure img,
 .figure video {
   display: block;
