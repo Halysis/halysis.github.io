@@ -37,64 +37,71 @@ description: "Fully passive flapping-foil hydrokinetic turbines, biomimetic caud
             measurement.
           </p>
           <p>
-            I designed and ran the experimental campaigns for a dual configuration
-            with a mechanical coupling between the two foils, for the crank-rocker
-            mechanism that converts the flapping motion into shaft power, and most
-            recently for a bidirectional version with elliptical foils in tandem,
-            tested in the large circulating water channel at KIOST. The elliptical
-            section was chosen for a specific reason: it starts on its own in a much
-            slower current than a NACA section does, which matters far more at a real
-            tidal site than a few points of peak efficiency.
-          </p>
-
-          <ul class="metrics">
-            <li class="metric">
-              <span class="metric-value">49%</span>
-              <span class="metric-label">Lower self-starting flow velocity than a conventional NACA-section turbine</span>
-              <span class="metric-source">Int. J. Energy Research, 2026</span>
-            </li>
-            <li class="metric">
-              <span class="metric-value">32.7%</span>
-              <span class="metric-label">Maximum measured efficiency of the bidirectional configuration</span>
-              <span class="metric-source">Int. J. Energy Research, 2026</span>
-            </li>
-            <li class="metric">
-              <span class="metric-value">1–2 × 10<sup>5</sup></span>
-              <span class="metric-label">Reynolds number range over which the behaviour was characterised</span>
-              <span class="metric-source">Int. J. Energy Research, 2026</span>
-            </li>
-          </ul>
-
-          <p style="margin-top:34px;">
-            The trade is explicit rather than hidden: that self-starting advantage
-            costs 12.5–13.5% in efficiency against NACA-section turbines. Near-sinusoidal
-            motion (R² &gt; 0.8) was reached at a force ratio around 0.8 and a reduced
-            frequency between 0.095 and 0.115.
-          </p>
-          <p>
-            A separate campaign asked what happens when the flow is not aligned with
-            the device, which at a tidal site it frequently is not. A 10° yaw
-            misalignment cost about 10% of power and raised the system load by about
-            30%. The more useful result was the shape of that load: the
-            flow-perpendicular component was large and varied periodically with the
-            up-and-down motion — behaviour a rotary turbine does not show, and
-            therefore something the structural design of a flapping-foil device
-            cannot inherit from rotary practice.
+            I designed and ran four campaigns on this device, each answering one of
+            those questions, in circulating water channels from laboratory scale up
+            to the large facility at KIOST.
           </p>
 
           <figure class="figure">
-            <div class="figure-placeholder">Figure slot — test rig in the circulating water channel</div>
-            <figcaption>Replace with a photograph or a measured power/load curve.</figcaption>
+            <video src="{{ site.baseurl }}/assets/video/flapping-foil.mp4"
+                   poster="{{ site.baseurl }}/assets/video/flapping-foil-poster.jpg"
+                   controls muted loop playsinline preload="none"></video>
+            <figcaption>The dual flapping-foil turbine in the circulating water channel at 0.7 m/s and a reduced frequency of 0.117 — the condition at which it reached its maximum power efficiency of 32.1%.</figcaption>
           </figure>
 
           <div class="related">
-            <h4>Related publications</h4>
-            <ul>
-              <li>Bidirectional turbine with elliptical foils in tandem — <a href="https://doi.org/10.1155/er/5594961" target="_blank" rel="noopener noreferrer">Int. J. Energy Research, 2026</a></li>
-              <li>Yaw misalignment, power performance and system loading — <a href="https://doi.org/10.1002/ese3.1969" target="_blank" rel="noopener noreferrer">Energy Sci. Eng., 2024</a></li>
-              <li>Power transmission mechanism — <a href="https://doi.org/10.1016/j.renene.2024.121636" target="_blank" rel="noopener noreferrer">Renewable Energy, 2024</a></li>
-              <li>Dual configuration with a coupling mechanism — <a href="https://doi.org/10.1016/j.renene.2023.03.078" target="_blank" rel="noopener noreferrer">Renewable Energy, 2023</a></li>
-            </ul>
+            <h4>Four campaigns</h4>
+
+            <article class="publication">
+              <div class="date">2023<br>Renewable Energy</div>
+              <div class="entry">
+                <p>
+                  Chains linking the pitch and arm motion of the two foils let the pair
+                  start and run with no actuator, settling into a near-90° phase
+                  difference that removes the zero-power zones from the combined
+                  power curve.
+                </p>
+                <div class="links"><a href="https://doi.org/10.1016/j.renene.2023.03.078" target="_blank" rel="noopener noreferrer">DOI</a></div>
+              </div>
+            </article>
+
+            <article class="publication">
+              <div class="date">2024<br>Renewable Energy</div>
+              <div class="entry">
+                <p>
+                  A crank-rocker mechanism turns the flapping of both foils into
+                  rotation of a single shaft and transmits 92.1% of the power it
+                  receives, against a theoretical ceiling of 95.3%; what is lost goes to short
+                  negative-torque spells as the rear foil passes through the wake of
+                  the front one.
+                </p>
+                <div class="links"><a href="https://doi.org/10.1016/j.renene.2024.121636" target="_blank" rel="noopener noreferrer">DOI</a></div>
+              </div>
+            </article>
+
+            <article class="publication">
+              <div class="date">2024<br>Energy Sci. &amp; Eng.</div>
+              <div class="entry">
+                <p>
+                  Ten degrees of yaw misalignment costs about 10% of the power and adds
+                  about 30% to the system load, and that added load acts perpendicular
+                  to the flow and swings periodically with the flapping cycle.
+                </p>
+                <div class="links"><a href="https://doi.org/10.1002/ese3.1969" target="_blank" rel="noopener noreferrer">DOI</a></div>
+              </div>
+            </article>
+
+            <article class="publication">
+              <div class="date">2026<br>Int. J. Energy Res.</div>
+              <div class="entry">
+                <p>
+                  Elliptical foils in tandem let the turbine start in a current 49%
+                  slower than a NACA-section turbine needs and run with the flow coming
+                  from either direction, for 12.5–13.5% less efficiency.
+                </p>
+                <div class="links"><a href="https://doi.org/10.1155/er/5594961" target="_blank" rel="noopener noreferrer">DOI</a></div>
+              </div>
+            </article>
           </div>
         </div>
       </div>

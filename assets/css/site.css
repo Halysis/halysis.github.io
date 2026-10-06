@@ -689,11 +689,11 @@ footer {
   font-size: 1.05rem;
 }
 
-.statement p:last-child {
+.statement > p:last-child {
   margin-bottom: 0;
 }
 
-.statement p:first-child {
+.statement > p:first-child {
   font-family: var(--font-serif);
   font-size: 1.3rem;
   line-height: 1.6;
@@ -765,7 +765,8 @@ footer {
   margin: 34px 0 0;
 }
 
-.figure img {
+.figure img,
+.figure video {
   display: block;
   width: 100%;
   height: auto;
